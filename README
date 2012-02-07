@@ -1,0 +1,4 @@
+Collecting keypresses and passing via ajax for further processing.  To see the test form, start the Django development server and go to:
+
+http://127.0.0.1:8000/test1
+

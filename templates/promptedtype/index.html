@@ -1,0 +1,55 @@
+<DOCTYPE html>
+<html>
+    <head>
+     <style>
+        fieldset { margin-bottom: 1em; }
+        input { display: block; margin-bottom: .25em; }
+        #print-output {
+           width: 100%;
+         }
+        .print-output-line {
+           white-space: pre;
+           padding: 5px;
+           font-family: monaco, monospace;
+           font-size: .7em;
+         }
+
+      </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+    <form>
+      <fieldset>
+        <label for="target">Type Something:</label>
+        <input id="target" type="textarea" />
+      </fieldset>
+    </form>
+<script src="http://api.jquery.com/scripts/events.js"></script>
+<script>
+    var kDown = 0;
+    var kUp = 0;
+    var user = "{{user_name}}"
+    $("#target").keydown(function(event) {
+      if ( event.which == 13 ) {
+           event.preventDefault();
+         }
+    kDown = event.timeStamp;
+    });
+    
+    $("#target").keyup(function(event) {
+        if (event.which == 13) { 
+            event.preventDefault();
+         }
+    kUp = event.timeStamp
+    var msg = "User: " + user + " Key Ascii: " + event.keyCode + " Down: " + kDown + " Up: " + kUp;
+    $.post("/test1/process/", {
+        user_name: user,
+        keydown: kDown,
+        keyup: kUp},
+        function(data) {$.print(data, "html")});
+        
+    })
+
+</script>
+</body>
+</html>
