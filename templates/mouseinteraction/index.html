@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>Xemplar Trusted Authentication</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="processing-1.3.6.js"></script>
+</head>
+
+<body style="padding-top: 40px">
+
+<script src="http://api.jquery.com/scripts/events.js"></script>
+<script>
+    var mX = new Array();
+    var mY = new Array();
+    var kDown = 0;
+    var kUp = 0;
+    var user = "{{user_name}}"
+    $("#target").keydown(function(event) {
+      if ( event.which == 13 ) {
+           event.preventDefault();
+         }
+    kDown = event.timeStamp;
+    });
+
+    $("#target").keyup(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+         }
+    kUp = event.timeStamp
+    var msg = "User: " + user + " Key Ascii: " + event.keyCode + " Down: " + kDown + " Up: " + kUp;
+    $.post("/test1/process/", {
+        user_name: user,
+        keydown: kDown,
+        keyup: kUp},
+        function(data) {$.print(data, "html")});
+
+    })
+
+</script>
+<canvas data-processing-sources="test.pde"></canvas>
+</body>
+</html>

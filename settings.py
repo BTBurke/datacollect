@@ -10,7 +10,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = '/home/ubuntu/project/datacollect/datacollect.db'             # Or path to database file if using sqlite3.
+DATABASE_NAME = '/home/btb/project/datacollect/datacollect.db'             # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
@@ -66,16 +66,16 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'datacollect.urls'
 
 TEMPLATE_DIRS = (
-    '/home/ubuntu/project/datacollect/templates'
+    '/home/btb/project/datacollect/templates'
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
 
 STATICFILES_DIRS = (
-        '/home/ubuntu/project/datacollect/promptedtype/static/',
+        '/home/btb/project/datacollect/promptedtype/static/',
 )
-STATIC_ROOT = '/home/ubuntu/datacollect/staticfiles/'
+STATIC_ROOT = '/home/btb/datacollect/staticfiles/'
 STATIC_URL = '/static'
 
 INSTALLED_APPS = (
@@ -84,5 +84,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-    'datacollect.promptedtype'
-)
+    'datacollect.promptedtype',
+    'datacollect.mouseinteraction')
